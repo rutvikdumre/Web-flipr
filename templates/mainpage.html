@@ -16,6 +16,7 @@
                 background-position: 0%;
                 background-attachment: fixed;
                 background-size: cover;
+                letter-spacing: 1px;
             }
             .left{
                 float: left;
@@ -172,6 +173,7 @@
             <nav>
                 <ul>
                     <li style="float:left; text-align: left;"><h2>{{choice}}</h2><hr>Previous close:{{close}} <br>   Date:{{date}}</li>
+                    <li style="float:right; text-align: right; background-color: #626262; border-radius: 10px;"><h2> <a style="text-decoration: none; color: white; font-weight: bold;" href="/login">Login</a></h2></li>
                 </ul>
                    
             </nav>
@@ -223,12 +225,12 @@
                 <li style="float:right">Previous close: {{dayh}}</li>
             </ul>
             <ul>
-                <li style="float:left; color: #D95858;">Day low: {{dayl}}</li>
-                <li style="float:right; color: #39A97C;">Day high: {{close}}</li>
+                <li style="float:left; color: #e84a5f;">Day low: {{dayl}}</li>
+                <li style="float:right; color: #23d68f;">Day high: {{close}}</li>
             </ul>
             <ul>
-                <li style="float:left; color: #39A97C;">Week high: {{weekh}}</li>
-                <li style="float:right; color: #D95858;">Week low: {{weekl}}</li>
+                <li style="float:left; color: #23d68f;">Week high: {{weekh}}</li>
+                <li style="float:right; color: #e84a5f;">Week low: {{weekl}}</li>
             </ul>
         </section>
         </div>

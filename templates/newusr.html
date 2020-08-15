@@ -164,6 +164,16 @@
             div {
                 display: block;
             }
+            input[type=button], input[type=submit], input[type=reset] {
+            background-color: #626262;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            }
         </style>
     </head>
     <body>
@@ -182,23 +192,14 @@
         <div>
         
         <aside>
-            <h1>Company</h1>
+            <h1>Create User</h1>
             <form method="POST" class="form" action="#">
-                <select name="company">
-                    <option value="ASHOKLEY.NS">ASHOKLEY.NS</option>
-                    <option value="CIPLA.NS">CIPLA.NS</option>
-                    <option value="EICHERMOT.NS">EICHERMOT.NS</option>
-                    <option value="RELIANCE.NS">RELIANCE.NS</option>
-                    <option value="TATASTEEL.NS">TATASTEEL.NS</option>
-                  </select>
-                  <input type="submit" value="Change">
+                <p>Username<br><br><input type="text" placeholder="Username" name="uid" required></p>
+                <p>Password<br><br><input type="password" placeholder="Password" name="psw" required></p>
+                <input type="submit" value="Create User">
             </form>
-            <div>
-                <h2>{{company_name}}</h2>
-                <p style="color: #e84a5f;">Low:{{clow}}</p>
-                <p style="color: #39A97C;">High:{{chigh}}</p>
-                <img src={{company}} alt="Graph">
-            </div>
+            <h2 style="color: #e84a5f;">{{failed}}</h2>
+            <h2 style="color: #39A97C;">{{passed}}</h2>
         </aside>
         </div>
         </div>
@@ -209,8 +210,7 @@
     <footer class="foot">
         <ul>
             <li style="float:left">Rutvik Dumre</li>
-            <li style="float:right">rutvikdurme@gmail.com</li>
-            
+            <li style="float:right">rutvikdurme@gmail.com</li>  
           </ul>
     </footer>
     </div>

@@ -50,3 +50,30 @@ def info(company):
     df= pd.read_csv("Data/"+company+".csv")
     today= df.loc[df['Date'] == df['Date'].max()]
     return ["{:.2f}".format(float(today['Low'])),"{:.2f}".format(float(today['High']))]
+def login1(uid,psw):
+    df=pd.read_csv('Data/users.csv')
+    try:
+        if((uid== df.loc[df['uid'] == uid]['uid']).bool()):
+            p=(df.loc[df['uid'] == uid]['psw'])
+            if((p==psw).bool()):
+                return "Login success!"
+            else:
+                return "Wrong password"
+        else:
+            return "Wrong userID"
+    except:
+        return "Wrong credentials"
+def new(uid,psw):
+    try:
+        df=pd.read_csv('Data/users.csv')
+        with open('Data/users.csv','a') as fd:
+            fd.write('{},{}'.format(uid,psw))
+        fd.close()
+        return "User Added"
+    except:
+        return "User addition failed"
+           
+            
+       
+    
+
