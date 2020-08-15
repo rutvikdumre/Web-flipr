@@ -68,8 +68,9 @@
                 object-fit: cover;
             }
            
-            h2{
+            h1{
                 color: white;
+                font-size: 300%;
             }
             .bgc1{
                 background-color: #333;
@@ -184,7 +185,7 @@
                 <li style="float:left"><!--Size dropdown menu-->
                     <form method="POST" class="form" action="#">
                         <select name="choice">
-                            <option value="NIFTY">NSE</option>
+                            <option value="NIFTY 50">NSE</option>
                             <option value="SENSEX">BSE</option>
                           </select>
                           <input type="submit" value="Change">
@@ -192,8 +193,9 @@
                     
                 </li>
                 </ul>
+                <hr>
                 <ul>
-                <li style="float:right"><h1>{{choice}}</h1></li>
+                <li style="float:right"><h1>{{choice}}</h1><br><p style="margin:0; color:whitesmoke; text-align:right">As on {{date}}</p></li>
                 <li style="float:left"><div class="indprirange">
                     <div class="drang MT10">Day Range</div>
                     <div class="rangamount clearfix">
@@ -208,14 +210,24 @@
                     <div id="sp_yearlyhigh" class="FR">{{weekh}}</div>
                     </div>
                         <div class="rangesick"> <span id="sp_graph_plot_year"><strong style="left: 75%;"></strong></span> <em class="grn">H</em></div>
-                </div></li>
-                <li style="float:right">{{open}}</li>
-                <li style="float:right">{{dayh}}</li>
-                <li style="float:right">{{dayl}}</li>
-                <li style="float:right">{{prevc}}</li>
-                <li style="float:right">{{weekh}}</li>
-                <li style="float:right">{{weekl}}</li>
+                </div>
+                </li>
+                
                 <br>
+            </ul>
+            <h2>Overview</h2>
+            <hr>
+            <ul>
+                <li style="float:left">Open: {{open}}</li>
+                <li style="float:right">Previous close: {{dayh}}</li>
+            </ul>
+            <ul>
+                <li style="float:left; color: #D95858;">Day low: {{dayl}}</li>
+                <li style="float:right; color: #39A97C;">Day high: {{close}}</li>
+            </ul>
+            <ul>
+                <li style="float:left; color: #39A97C;">Week high: {{weekh}}</li>
+                <li style="float:right; color: #D95858;">Week low: {{weekl}}</li>
             </ul>
         </section>
         </div>

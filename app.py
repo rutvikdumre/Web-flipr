@@ -1,4 +1,5 @@
 from flask import Flask, request, redirect, url_for, render_template
+from backend import popup
 app = Flask(__name__)
 
 
@@ -6,9 +7,11 @@ app = Flask(__name__)
 def hello():
     if request.method=='POST':
         c=request.form.get('choice')
-        return render_template('mainpage.html', choice=c)
+        open,close,dayl,dayh,weekl,weekh,date=popup(c)
+        return render_template('mainpage.html', choice=c,open=open,close= close,dayl=dayl,dayh=dayh,weekl=weekl,weekh=weekh,date=date)
     else:
-        return render_template('mainpage.html', choice="NIFTY")
+        open,close,dayl,dayh,weekl,weekh,date=popup("NIFTY 50")
+        return render_template('mainpage.html', choice="NIFTY 50",open=open,close= close,dayl=dayl,dayh=dayh,weekl=weekl,weekh=weekh,date=date)
 
 if __name__ == '__main__':
     app.run(debug=True)
