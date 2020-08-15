@@ -1,6 +1,13 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from csv import writer
+def append_list_as_row(file_name, list_of_elem):
+    # Open file in append mode
+    with open(file_name, 'a+', newline='') as write_obj:
+        # Create a writer object from csv module
+        csv_writer = writer(write_obj)
+        # Add contents of list as last row in the csv file
+        csv_writer.writerow(list_of_elem)
 def popup(choice):
     nse= pd.read_csv('Data/NSE (Nifty).csv')
     bse= pd.read_csv('Data/BSE (Sensex).csv')
@@ -64,15 +71,14 @@ def login1(uid,psw):
     except:
         return "Wrong credentials"
 def new(uid,psw):
-    try:
-        df=pd.read_csv('Data/users.csv')
-        with open('Data/users.csv','a') as fd:
-            fd.write('{},{}'.format(uid,psw))
-        fd.close()
+    df=pd.read_csv('Data/users.csv')
+    if(uid not in list(df['uid'])):
+        append_list_as_row('Data/users.csv',[uid,psw])
         return "User Added"
-    except:
-        return "User addition failed"
-           
+    else:
+        return "Username already exists"
+    
+
             
        
     
