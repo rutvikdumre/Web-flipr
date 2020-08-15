@@ -42,6 +42,7 @@
 
             li {
             float: left;
+            top:10%;
             }
 
             li a {
@@ -74,11 +75,13 @@
                 background-color: #333;
                 padding: 4%;
                 border-radius: 10px;
+                margin: 5%;
             }
             .bgc2{
                 background-color: grey;
                 padding: 1%;
                 border-radius: 10px;
+                margin: 5%;
             }
             .foot{
                 clear: both;
@@ -106,6 +109,60 @@
                 transition: 1s;
                 box-shadow: 0 0px 16px white;
             }
+            .indprirange {
+                width: 280px;
+                float: right;
+                height: 238px;
+            }
+            .drang {
+                color: whitesmoke;
+                font: 14px 'latoregular', arial;
+                margin-bottom: 10px;
+            }
+            .MT10 {
+                margin-top: 10px;
+            }
+            .rangamount {
+                color: #000000;
+                font: 15px 'latoregular', arial;
+            }
+            .rangesick {
+                color: #D95858;
+                margin: 5px 0;
+                font: 11px 'latoregular', arial;
+            }
+            .clearfix {
+                display: block;
+            }
+            .FL {
+                float: left;
+                color: white;
+            }
+            .FR {
+                float: right;
+                color: white;
+            }
+            .rangesick span {
+                display: inline-block;
+                vertical-align: middle;
+                border-top: 1px solid #000;
+                position: relative;
+                margin: 0 5px;
+                width: calc(100% - 30px);
+            }
+            .rangesick em {
+                font-style: normal;
+            }
+            .grn {
+                color: #39A97C;
+            }
+            ::selection {
+                background: #b3d4fc;
+                text-shadow: none;
+            }
+            div {
+                display: block;
+            }
         </style>
     </head>
     <body>
@@ -121,19 +178,51 @@
         
         </div>
         <div>
-        <div class="left bgc1">
+        <div class="bgc1">
         <section>
-            <h3>An informative Coding article</h3>
-            <article>
-                
-                <h4>Coding Article</h4>
-
+            <ul>
+                <li style="float:left"><!--Size dropdown menu-->
+                    <form method="POST" class="form" action="#">
+                        <select name="choice">
+                            <option value="NIFTY">NSE</option>
+                            <option value="SENSEX">BSE</option>
+                          </select>
+                          <input type="submit" value="Change">
+                    </form>
+                    
+                </li>
+                </ul>
+                <ul>
+                <li style="float:right"><h1>{{choice}}</h1></li>
+                <li style="float:left"><div class="indprirange">
+                    <div class="drang MT10">Day Range</div>
+                    <div class="rangamount clearfix">
+                    <div id="sp_low" class="FL">{{dayl}}</div>
+                    <div id="sp_high" class="FR">{{dayh}}</div>
+                    </div>
+                    <div class="rangesick"><em></em><span id="sp_graph_plot_day"><strong style="left: 26%;"></strong></span> <em class="grn">H</em></div>
+                    
+                    <div class="drang MT20">52 week Range</div>
+                    <div class="rangamount clearfix">
+                    <div id="sp_yearlylow" class="FL">{{weekl}}</div>
+                    <div id="sp_yearlyhigh" class="FR">{{weekh}}</div>
+                    </div>
+                        <div class="rangesick"> <span id="sp_graph_plot_year"><strong style="left: 75%;"></strong></span> <em class="grn">H</em></div>
+                </div></li>
+                <li style="float:right">{{open}}</li>
+                <li style="float:right">{{dayh}}</li>
+                <li style="float:right">{{dayl}}</li>
+                <li style="float:right">{{prevc}}</li>
+                <li style="float:right">{{weekh}}</li>
+                <li style="float:right">{{weekl}}</li>
+                <br>
+            </ul>
         </section>
         </div>
-        <div class="right bgc2">
+        <div class="bgc2">
         <aside>
             <h4>Coding additional info</h4>
-
+            
         </aside>
         </div>
         </div>
