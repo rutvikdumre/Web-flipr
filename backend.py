@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def popup(choice):
     nse= pd.read_csv('Data/NSE (Nifty).csv')
@@ -22,7 +23,7 @@ def popup(choice):
     if(choice=='NIFTY 50'):
         dates=list(nse['Date'])
         dates.sort()
-        nse_today=nse.loc[nse['Date'] == bse['Date'].max()]
+        nse_today=nse.loc[nse['Date'] == nse['Date'].max()]
         yest=bse.loc[bse['Date'] == dates[-1]]
         open=("{:.2f}".format(float(nse_today['Open'])))
         close=("{:.2f}".format(float(yest['Close'])))
@@ -33,3 +34,19 @@ def popup(choice):
         weekh=("{:.2f}".format(float(nse['High'].max())))
         date=bse['Date'].max()
         return [open,close,dayl,dayh,weekl,weekh,date]
+def plot(company):
+    df= pd.read_csv("Data/"+company+".csv")
+    plt.plot(df['Date'], df['Open'], df['Close'])
+    plt.ylabel('Price')
+    plt.xlabel('Time')
+    plt.savefig('static/{}.png'.format(company), transparent=True)
+    
+    
+def all():
+    l=['ASHOKLEY.NS','CIPLA.NS','EICHERMOT.NS','RELIANCE.NS','TATASTEEL.NS']
+    for i in l:
+        plot(i)
+def info(company):
+    df= pd.read_csv("Data/"+company+".csv")
+    today= df.loc[df['Date'] == df['Date'].max()]
+    return ["{:.2f}".format(float(today['Low'])),"{:.2f}".format(float(today['High']))]
